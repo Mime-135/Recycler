@@ -1,9 +1,9 @@
 package GUI;
 
-//import Game.GAME_GUI;
+import Game.GAME_GUI;
 import Game.HowToPlayScreen;
 import Game.MainGameScreen;
-//import Game.StartingGameScreen;
+import Game.StartingGameScreen;
 
 import javax.swing.*;
 import java.awt.*;

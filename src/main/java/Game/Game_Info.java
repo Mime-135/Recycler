@@ -73,7 +73,15 @@ public class Game_Info extends Data implements Game_parameters {
     public String getGame_Chosen(){
         return Game_Chosen;
     }
-
+    public String get_answer(int i){ //i has to be between 0 and 5
+        return this.answers[i];
+    }
+    public String get_container(int i){ //i has to be between 0 and 5
+        return this.container[i];
+    }
+    public int get_score(){ //i has to be between 0 and 5
+        return this.score;
+    }
 
     //Return a words from the difficulty level database array
     //Takes in index counter for the array
@@ -143,6 +151,13 @@ public class Game_Info extends Data implements Game_parameters {
             this.counter = this.counter-1;
         }
     }
+    public void reset_counter(){ //i has to be between 0 and 5
+        this.counter = 0;
+    }
+    public void reset_score(){ //i has to be between 0 and 5
+        this.score = 0;
+    }
+
 
     //Increases The scores if the User Selected Answer is same as answer Array using counter and array index
     public void check_answer(){

@@ -1,4 +1,3 @@
-/*
 package Game;
 
 import GUI.GUI;
@@ -191,4 +190,3 @@ public class StartingGameScreen {
 
     }
 }
-*/
