@@ -197,24 +197,33 @@ public class Game_InfoTest {
         System.out.println(G1.get_Easy_database_image(3));
     }
 
-    @Test
-    public void set_Current_user_word() {
-        Game_Info G1 = new Game_Info();
-        G1.set_game_all_param("Words","Easy",true,5);
-        System.out.println(G1.getGame_Chosen());
-        System.out.println(G1.Game_Chosen);
-    }
 
     @Test
     public void increase_score() {
+        Game_Info G1 = new Game_Info();
+        G1.set_game_all_param("Words","Easy",true,5);
+        G1.score = 20;
+        G1.increase_score();
+        System.out.println(G1.score);
+        assertEquals("Increase the score value", 21, G1.score);
     }
 
     @Test
     public void increase_counter() {
+        Game_Info G1 = new Game_Info();
+        G1.set_game_all_param("Words","Easy",true,5);
+        G1.counter = 2;
+        G1.increase_counter();
+        System.out.println(G1.counter);
     }
 
     @Test
     public void decrease_counter() {
+        Game_Info G1 = new Game_Info();
+        G1.set_game_all_param("Words","Easy",true,5);
+        G1.counter = 2;
+        G1.decrease_counter();
+        System.out.println(G1.counter);
     }
 
     @Test
@@ -235,5 +244,40 @@ public class Game_InfoTest {
 
     @Test
     public void check_answer() {
+        Game_Info G1 = new Game_Info();
+        G1.set_game_all_param("Words","Easy",true,5);
+        G1.Game_Chosen = "Easy";
+        G1.pick_Database_word_array();
+        for (int i = 0; i < 5; i++){
+            System.out.println(G1.EasyDiffLevel_answer[i]);
+            System.out.println(G1.EasyDiffLevel_data[i]);
+        }
+        G1.counter = 2;
+        G1.user_current_word = G1.EasyDiffLevel_answer[G1.counter];
+        G1.check_answer();
+        System.out.println(G1.track_of_scores[G1.counter]);
+        System.out.println("*******************************");
+
+        G1.difficultyLevel = "Hard";
+        G1.pick_Database_word_array();
+        for (int i = 0; i < 5; i++){
+            System.out.println(G1.HardDiffLevel_answer[i]);
+            System.out.println(G1.HardDiffLevel_data[i]);
+        }
+        G1.counter = 2;
+        G1.check_answer();
+        System.out.println(G1.track_of_scores[G1.counter]);
+        System.out.println("********************************");
+
+        G1.difficultyLevel = "Normal";
+        G1.pick_Database_word_array();
+        for (int i = 0; i < 5; i++){
+            System.out.println(G1.mediumDiffLevel_answer[i]);
+            System.out.println(G1.mediumDiffLevel_data[i]);
+        }
+        G1.counter = 2;
+        G1.check_answer();
+        System.out.println(G1.track_of_scores[G1.counter]);
+        System.out.println("*********************************");
     }
 }
