@@ -182,6 +182,7 @@ public class PlayGui implements GamePlayScreen {
         frame.pack();
         frame.setVisible(true);
     }
+
     //help with initialization of either word or image at the start of the game
     public void start_word_or_images(){
         if(G1.get_Item_type().equals("Words")){
@@ -211,6 +212,8 @@ public class PlayGui implements GamePlayScreen {
         }
         Word_Image.setText(word);
     }
+
+    //Based on counter in Gameinfo class this function will display the image
     public void display_image_from_database(){
         //array of difficulty, pick image depending on the name of those
         //image.jpg
@@ -275,7 +278,7 @@ public class PlayGui implements GamePlayScreen {
         }
     }
 
-    //Set Score
+    //Set Score and give to GameInfo Class
     public void Give_userInput_for_ScoreChecking() throws InterruptedException {
         if(b1.isSelected()){
             G1.set_Current_user_word("Bottles/Cans");

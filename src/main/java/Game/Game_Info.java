@@ -25,6 +25,9 @@ public class Game_Info extends Data implements Game_parameters {
     public Data Database = new Data();
     public Game_Info(){
     }
+
+
+    //store the Difficulty level from the database
     //if the user selects word option then this function will pick the database
     public void pick_Database_word_array(){
         int size = max_number_items;
@@ -46,45 +49,34 @@ public class Game_Info extends Data implements Game_parameters {
             Game_Chosen = "Easy";
         }
     }
-    //helps with intializing
+
+    //helps with intializing the PlayGUI parameters and is a setter for all the game parameters
+    //Takes in Difficulty_Level, image/words, Timer, and Max_Num of Items
     public void set_game_all_param(String param2, String param3, boolean param4, int param5 ){
         this.item_types= param3;
         this.difficultyLevel = param2;
         this.Timer = param4;
         this.max_number_items = param5;
     }
-    //getters
+
+    //Simple getters functions
     public String get_word(int i){ //i has to be between 0 and 5
         return this.items[i];
     }
     public int get_counter(){ //i has to be between 0 and 5
         return this.counter;
     }
-    public String get_container(int i){ //i has to be between 0 and 5
-        return this.container[i];
-    }
     public int get_max_number_items(){ //i has to be between 0 and 5
         return this.max_number_items;
     }
-    public int get_score(){ //i has to be between 0 and 5
-        return this.score;
-    }
-    public double get_calculated_score(){ //i has to be between 0 and 5
-        double temp_score=0;
-        for(int i=0; i<this.max_number_items;i++) {
-            if(this.track_of_scores[i].equals("yes")) {
-                temp_score +=1;
-            }
-        }
-        return (temp_score/this.max_number_items) *100;
-    }
-    public String get_answer(int i){ //i has to be between 0 and 5
-        return this.answers[i];
-    }
-    /*public String get_difficultyLevel(){ return this.difficultyLevel; }
-    public String[] get_containers(){return this.container;}*/
     public String get_Item_type(){return this.item_types;}
-    //getters for words from database
+    public String getGame_Chosen(){
+        return Game_Chosen;
+    }
+
+
+    //Return a words from the difficulty level database array
+    //Takes in index counter for the array
     public String get_Hard_database_word(int counter_game){
         return HardDiffLevel_data[counter_game];
     }
@@ -94,10 +86,8 @@ public class Game_Info extends Data implements Game_parameters {
     public String get_Easy_database_word(int counter_game){
         return EasyDiffLevel_data[counter_game];
     }
-    //get Game_chosen
-    public String getGame_Chosen(){
-        return Game_Chosen;
-    }
+
+    //Return a Images from the difficulty level database array
     //get Hard image
     public String get_Hard_database_image(int counter_game){
         String temp = HardDiffLevel_data[counter_game];
@@ -113,20 +103,26 @@ public class Game_Info extends Data implements Game_parameters {
         String temp = EasyDiffLevel_data[counter_game];
         return "src/main/java/RecyclingImages/" + temp + ".jpg"; //filename to image
     }
-    //getters for images from database
-    //setters
-    /*public void set_counter(int i){ //i has to be between 0 and 5
-        this.counter = i;
+
+
+
+    //return a percentage for the final score of the PlaYGUI
+    public double get_calculated_score(){ //i has to be between 0 and 5
+        double temp_score=0;
+        for(int i=0; i<this.max_number_items;i++) {
+            if(this.track_of_scores[i].equals("yes")) {
+                temp_score +=1;
+            }
+        }
+        return (temp_score/this.max_number_items) *100;
     }
-    public void set_score(int i){ //i has to be between 0 and 5
-        this.counter = i;
-    }
-    public void set_difficultyLevel(String difficulty_level){ this.difficultyLevel = difficulty_level;}
-    public void set_containers(String[] container_array){this.container = container_array;} //not too sure if you can set an array equal to another array in java
-    public void set_score_history(double score){array_full_of_scores.add(score);}*/
+
+
+    //Takes in current user selected word from PlayGUI
     public void set_Current_user_word(String current_word){
         this.user_current_word = current_word;
     }
+
     // useful features
     public void increase_score(){ //i has to be between 0 and 5
         this.score = this.score +1;
@@ -147,13 +143,10 @@ public class Game_Info extends Data implements Game_parameters {
             this.counter = this.counter-1;
         }
     }
-    public void reset_counter(){ //i has to be between 0 and 5
-        this.counter = 0;
-    }
-    public void reset_score(){ //i has to be between 0 and 5
-        this.score = 0;
-    }
+
+    //Increases The scores if the User Selected Answer is same as answer Array using counter and array index
     public void check_answer(){
+        //Hard
         if(Game_Chosen.equals("Hard")){
             if(user_current_word.equals(HardDiffLevel_answer[this.counter])){
                 increase_score();
@@ -163,6 +156,7 @@ public class Game_Info extends Data implements Game_parameters {
                 this.track_of_scores[this.counter] = "no";
             }
         }
+        //Normal
         if(Game_Chosen.equals("Normal")){
             if(user_current_word.equals(mediumDiffLevel_answer[this.counter])){
                 increase_score();
@@ -172,6 +166,7 @@ public class Game_Info extends Data implements Game_parameters {
                 this.track_of_scores[this.counter] = "no";
             }
         }
+        //Easy
         if(Game_Chosen.equals("Easy")){
             if(user_current_word.equals( EasyDiffLevel_answer[this.counter])){
                 increase_score();
