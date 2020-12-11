@@ -9,12 +9,12 @@ import static org.junit.Assert.*;
 public class Game_InfoTest {
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         System.out.println("I execute before each class");
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         System.out.println("I execute after each class");
     }
 

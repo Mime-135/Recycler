@@ -20,7 +20,7 @@ public class Data implements Database {
     protected String[] hardAnswers = {"Plastics", "Bottles/Cans", "Plastics", "Plastics", "Organic", "Trash", "Mixed Paper", "Plastics",
             "Mixed Paper", "Trash", "Mixed Paper", "Trash", "Trash", "Mixed Paper", "Organic", "Trash", "Bottles/Cans", "E-waste"};
 
-    public Data() {
+    public Data() { //Constructor
     }
 
     // function to generate and array of a new game play of a specific size.
@@ -47,7 +47,7 @@ public class Data implements Database {
     public String[] EasyWordData(int[] arr, int size) {
         String[] easyplay = new String[size];
         for (int i = 0; i < size; i++) {
-            easyplay[i] = easyItems[arr[i]];
+            easyplay[i] = easyItems[arr[i]]; //Store the easy words in the new array and return it
         }
         return easyplay;
     }
@@ -58,7 +58,7 @@ public class Data implements Database {
     public String[] MediumWordData(int[] arr, int size) {
         String[] medplay = new String[size];
         for (int i = 0; i < size; i++)
-            medplay[i] = mediumItems[arr[i]];
+            medplay[i] = mediumItems[arr[i]]; //Store the medium words in medplay and return the array
         return medplay;
     }
 
@@ -68,7 +68,7 @@ public class Data implements Database {
     public String[] HardWordData(int[] arr, int size) {
         String[] hardplay = new String[size];
         for (int i = 0; i < size; i++)
-            hardplay[i] = hardItems[arr[i]];
+            hardplay[i] = hardItems[arr[i]]; //Store the hard words in hardplay and return the filled array
         return hardplay;
     }
 
@@ -78,9 +78,9 @@ public class Data implements Database {
     public String[] EasyAnsData(int[] arr, int size) {
         String[] easyans = new String[size];
         for (int i = 0; i < size; i++) {
-            easyans[i] = easyAnswers[arr[i]];
+            easyans[i] = easyAnswers[arr[i]]; //Store the respective easy answers for the selected words in easyans
         }
-        return easyans;
+        return easyans; // return the filled array
     }
 
     //returns an array of the answers to the respective game play words in an array
@@ -89,8 +89,8 @@ public class Data implements Database {
     public String[] MediumAnsData(int[] arr, int size) {
         String[] medans = new String[size];
         for (int i = 0; i < size; i++)
-            medans[i] = mediumAnswers[arr[i]];
-        return medans;
+            medans[i] = mediumAnswers[arr[i]]; //Store the respective medium answers for the selected words in easyans
+        return medans; // return the filled array
     }
 
     //returns an array of the answers to the respective game play words in an array
@@ -99,7 +99,7 @@ public class Data implements Database {
     public String[] HardAnsData(int[] arr, int size) {
         String[] hardans = new String[size];
         for (int i = 0; i < size; i++)
-            hardans[i] = hardAnswers[arr[i]];
-        return hardans;
+            hardans[i] = hardAnswers[arr[i]]; //Store the respective hard answers for the selected words in hardans
+        return hardans; // return the filled array
     }
 }
