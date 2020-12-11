@@ -44,7 +44,7 @@ public class Data implements Database {
     //returns an array of the easy words depending on the amount of words needed
     //takes in an array with the play index and of the size of the array
     @Override
-    public String[] EasyWordData(int arr[], int size) {
+    public String[] EasyWordData(int[] arr, int size) {
         String[] easyplay = new String[size];
         for (int i = 0; i < size; i++) {
             easyplay[i] = easyItems[arr[i]];
@@ -55,7 +55,7 @@ public class Data implements Database {
     //returns an array of the medium words depending on the amount of words needed
     //takes in an array with the play index and of the size of the array
     @Override
-    public String[] MediumWordData(int arr[], int size) {
+    public String[] MediumWordData(int[] arr, int size) {
         String[] medplay = new String[size];
         for (int i = 0; i < size; i++)
             medplay[i] = mediumItems[arr[i]];
@@ -65,7 +65,7 @@ public class Data implements Database {
     //returns an array of the hard words depending on the amount of words needed
     //takes in an array with the play index and of the size of the array
     @Override
-    public String[] HardWordData(int arr[], int size) {
+    public String[] HardWordData(int[] arr, int size) {
         String[] hardplay = new String[size];
         for (int i = 0; i < size; i++)
             hardplay[i] = hardItems[arr[i]];
@@ -75,7 +75,7 @@ public class Data implements Database {
     //returns an array of the answers to the respective game play words in an array
     //takes in the same play index array that EasyWordData takes in
     @Override
-    public String[] EasyAnsData(int arr[], int size) {
+    public String[] EasyAnsData(int[] arr, int size) {
         String[] easyans = new String[size];
         for (int i = 0; i < size; i++) {
             easyans[i] = easyAnswers[arr[i]];
@@ -86,7 +86,7 @@ public class Data implements Database {
     //returns an array of the answers to the respective game play words in an array
     //takes in the same play index array that HardWordData takes in
     @Override
-    public String[] MediumAnsData(int arr[], int size) {
+    public String[] MediumAnsData(int[] arr, int size) {
         String[] medans = new String[size];
         for (int i = 0; i < size; i++)
             medans[i] = mediumAnswers[arr[i]];
@@ -96,7 +96,7 @@ public class Data implements Database {
     //returns an array of the answers to the respective game play words in an array
     //takes in the same play index array that HardWordData takes in
     @Override
-    public String[] HardAnsData(int arr[], int size) {
+    public String[] HardAnsData(int[] arr, int size) {
         String[] hardans = new String[size];
         for (int i = 0; i < size; i++)
             hardans[i] = hardAnswers[arr[i]];

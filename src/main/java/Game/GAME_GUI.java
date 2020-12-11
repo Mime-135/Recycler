@@ -22,28 +22,28 @@ public class GAME_GUI {
 
 
     //panels
-    private  static JPanel panel=new JPanel();
-    private  static JPanel panel2=new JPanel();
-    private  static JPanel panel3=new JPanel();
-    private  static JPanel panel_item =new JPanel(); // words/images will be displayed here
+    private  static final JPanel panel=new JPanel();
+    private  static final JPanel panel2=new JPanel();
+    private  static final JPanel panel3=new JPanel();
+    private  static final JPanel panel_item =new JPanel(); // words/images will be displayed here
 
     //labels
-    private static JLabel label1 = new JLabel("organics");
-    private static JLabel label2 = new JLabel("plastic");
-    private static JLabel label3 = new JLabel("paper");
-    private static JLabel label_item = new JLabel("");
+    private static final JLabel label1 = new JLabel("organics");
+    private static final JLabel label2 = new JLabel("plastic");
+    private static final JLabel label3 = new JLabel("paper");
+    private static final JLabel label_item = new JLabel("");
 
     //radio buttons
-    private static JRadioButton b1 = new JRadioButton("");
-    private static JRadioButton b2 = new JRadioButton("");
-    private static JRadioButton b3 = new JRadioButton("");
-    private static ButtonGroup bg = new ButtonGroup();
+    private static final JRadioButton b1 = new JRadioButton("");
+    private static final JRadioButton b2 = new JRadioButton("");
+    private static final JRadioButton b3 = new JRadioButton("");
+    private static final ButtonGroup bg = new ButtonGroup();
 
     //buttons
     public static JButton confirm = new JButton("confirm");
-    private static JButton next = new JButton("next"); // not implemented
-    private static JButton skip = new JButton("skip"); // not implemented
-    private static JButton restart = new JButton("restart");
+    private static final JButton next = new JButton("next"); // not implemented
+    private static final JButton skip = new JButton("skip"); // not implemented
+    private static final JButton restart = new JButton("restart");
 
     public static Game_Info database_item = new Game_Info();
 

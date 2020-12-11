@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class GameSettings {
-    private JFrame frame = new JFrame("RecycleMania");
+    private final JFrame frame = new JFrame("RecycleMania");
     private JPanel main_panel;
     private JButton startButton;
     private JRadioButton a5RadioButton;
@@ -134,12 +134,8 @@ public class GameSettings {
 
 
     public boolean get_Timer(){
-        if(ONRadioButton.isSelected()){
-            return true;
-        }
-        else{
-            return false; //also the default
-        }
+        //also the default
+        return ONRadioButton.isSelected();
 
     }
 

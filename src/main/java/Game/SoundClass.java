@@ -10,6 +10,9 @@ import java.nio.file.Paths;
 public class SoundClass {
 
     public SoundClass() {
+
+    }
+    public void playSong(){
         SourceDataLine soundLine = null;
         int BUFFER_SIZE = 64 * 1024;  // 64 KB
 

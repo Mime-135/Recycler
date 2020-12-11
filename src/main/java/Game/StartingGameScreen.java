@@ -14,46 +14,46 @@ import java.io.*;
 
 
 public class StartingGameScreen {
-    private JFrame frame = new JFrame("Game Settings");
-    private  JPanel panel=new JPanel(); //This panel will hold the difficulty
-    private  JPanel panel2=new JPanel(); //This panel will hold the items
-    private  JPanel panel3=new JPanel(); //This panel will hold the items
-    private  JPanel panel4=new JPanel(); //This panel will hold the items
-    private  JPanel panel5 =new JPanel(); //This panel will hold the theme
-    private  JPanel panel6 =new JPanel(); //This panel will hold the num of items
+    private final JFrame frame = new JFrame("Game Settings");
+    private final JPanel panel=new JPanel(); //This panel will hold the difficulty
+    private final JPanel panel2=new JPanel(); //This panel will hold the items
+    private final JPanel panel3=new JPanel(); //This panel will hold the items
+    private final JPanel panel4=new JPanel(); //This panel will hold the items
+    private final JPanel panel5 =new JPanel(); //This panel will hold the theme
+    private final JPanel panel6 =new JPanel(); //This panel will hold the num of items
 
-    private  JLabel Setdifficulty =new JLabel("Choose Difficulty"); //This label will hold the items
-    private  JLabel SetWordorImages =new JLabel("Choose Word Or Image"); //This label will hold the items
-    private  JLabel Timer =new JLabel("Select for Timer"); //This label will hold the items
-    private  JLabel Theme =new JLabel("Choose For Theme"); //This label will hold the items
-    private  JLabel Num_of_items =new JLabel("Choose Number of Words/Images"); //This label will hold the items
+    private final JLabel Setdifficulty =new JLabel("Choose Difficulty"); //This label will hold the items
+    private final JLabel SetWordorImages =new JLabel("Choose Word Or Image"); //This label will hold the items
+    private final JLabel Timer =new JLabel("Select for Timer"); //This label will hold the items
+    private final JLabel Theme =new JLabel("Choose For Theme"); //This label will hold the items
+    private final JLabel Num_of_items =new JLabel("Choose Number of Words/Images"); //This label will hold the items
 
-    private JRadioButton r1 = new JRadioButton("Easy"); //Easy
-    private JRadioButton r2 = new JRadioButton("Normal"); //Normal
-    private JRadioButton r3 = new JRadioButton("Hard"); //Hard
-    private ButtonGroup bg_Difficulty = new ButtonGroup();
+    private final JRadioButton r1 = new JRadioButton("Easy"); //Easy
+    private final JRadioButton r2 = new JRadioButton("Normal"); //Normal
+    private final JRadioButton r3 = new JRadioButton("Hard"); //Hard
+    private final ButtonGroup bg_Difficulty = new ButtonGroup();
     // Need to make button group
-    private JRadioButton r4 = new JRadioButton("Images"); // Images
-    private JRadioButton r5 = new JRadioButton("Words"); // Words
-    private ButtonGroup bg_item_type = new ButtonGroup();
+    private final JRadioButton r4 = new JRadioButton("Images"); // Images
+    private final JRadioButton r5 = new JRadioButton("Words"); // Words
+    private final ButtonGroup bg_item_type = new ButtonGroup();
     // Need to make button group again
 
-    private JRadioButton r6 = new JRadioButton(); // For timer
-    private ButtonGroup bg_Timer = new ButtonGroup();
+    private final JRadioButton r6 = new JRadioButton(); // For timer
+    private final ButtonGroup bg_Timer = new ButtonGroup();
 
-    private JRadioButton r7 = new JRadioButton("Household items"); // For theme household
-    private JRadioButton r8 = new JRadioButton("Forest"); // For theme forest
-    private JRadioButton r9 = new JRadioButton("Beach"); // For theme beach items
-    private ButtonGroup bg_theme = new ButtonGroup();
+    private final JRadioButton r7 = new JRadioButton("Household items"); // For theme household
+    private final JRadioButton r8 = new JRadioButton("Forest"); // For theme forest
+    private final JRadioButton r9 = new JRadioButton("Beach"); // For theme beach items
+    private final ButtonGroup bg_theme = new ButtonGroup();
 
-    private JRadioButton r10 = new JRadioButton("5"); // For theme household
-    private JRadioButton r11 = new JRadioButton("10"); // For theme forest
-    private JRadioButton r12 = new JRadioButton("15"); // For theme beach items
-    private ButtonGroup bg_numItems = new ButtonGroup();
+    private final JRadioButton r10 = new JRadioButton("5"); // For theme household
+    private final JRadioButton r11 = new JRadioButton("10"); // For theme forest
+    private final JRadioButton r12 = new JRadioButton("15"); // For theme beach items
+    private final ButtonGroup bg_numItems = new ButtonGroup();
 
 
 
-    private JButton b1 = new JButton("Start Game");
+    private final JButton b1 = new JButton("Start Game");
 
     public void StartingGameScreen(){
     }
@@ -178,12 +178,7 @@ public class StartingGameScreen {
 
 
     public boolean get_Timer(){
-        if(r6.isSelected()){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return r6.isSelected();
     }
 
 

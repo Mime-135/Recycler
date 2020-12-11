@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class HowToPlayGUI implements HowToPlayScreen {
-    private JFrame frame = new JFrame("RecycleMania");
+    private final JFrame frame = new JFrame("RecycleMania");
     private JPanel main_panel;
     private JButton backButton;
     private JLabel instructions_1;

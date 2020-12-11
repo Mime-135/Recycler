@@ -14,7 +14,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Settings implements GUIOtherSettingScreen{
-    private JFrame frame = new JFrame("RecycleMania");
+    private final JFrame frame = new JFrame("RecycleMania");
     private JPanel main_panel;
     private JLabel RecycleMania;
     private JButton backButton;
@@ -207,7 +207,7 @@ public class Settings implements GUIOtherSettingScreen{
         String location = String.valueOf(path.toAbsolutePath()); //holds the image path
         File file = new File(location);
 
-        String temp = String.valueOf(R)+"-"+String.valueOf(G)+"-"+String.valueOf(B);
+        String temp = R +"-"+ G +"-"+ B;
 
         try (BufferedWriter br = new BufferedWriter(new FileWriter(file))){
             br.append(temp);
@@ -248,7 +248,7 @@ public class Settings implements GUIOtherSettingScreen{
         String location = String.valueOf(path.toAbsolutePath()); //holds the image path
         File file = new File(location);
 
-        String temp = String.valueOf(R)+"-"+String.valueOf(G)+"-"+String.valueOf(B);
+        String temp = R +"-"+ G +"-"+ B;
         try (BufferedWriter br = new BufferedWriter(new FileWriter(file))){
             br.append(temp);
         } catch (IOException e) {

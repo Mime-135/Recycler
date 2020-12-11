@@ -17,7 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class GameStatistics extends JFrame {
-    private JFrame frame = new JFrame("RecycleMania");
+    private final JFrame frame = new JFrame("RecycleMania");
     private JPanel main_panel;
     private JLabel RecycleMania;
     private JLabel lowest_score;

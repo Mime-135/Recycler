@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 
 public class GUI implements MainGameScreen{
 
-    private JFrame frame = new JFrame("RecycleMania");
+    private final JFrame frame = new JFrame("RecycleMania");
     private JPanel main_panel;
     private JButton playButton;
     private JButton aboutUsButton;
@@ -138,6 +138,7 @@ public class GUI implements MainGameScreen{
         //To play the background music, create an object of the sound class and loop it.
         for (int i = 0; i < 10; i++){
             SoundClass sound = new SoundClass();
+            sound.playSong();
         }
 
     }

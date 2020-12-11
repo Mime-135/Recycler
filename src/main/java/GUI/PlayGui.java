@@ -16,10 +16,10 @@ import java.nio.file.Paths;
 
 public class PlayGui implements GamePlayScreen {
 
-    private JFrame frame = new JFrame("RecycleMania");
-    private boolean save_game = false;
-    private boolean play_again = false;
-    private int score = 0;
+    private final JFrame frame = new JFrame("RecycleMania");
+    private final boolean save_game = false;
+    private final boolean play_again = false;
+    private final int score = 0;
     private JPanel main_panel;
     private JButton prevButton;
     private JPanel RecycleBin_1;
@@ -33,24 +33,24 @@ public class PlayGui implements GamePlayScreen {
     private JLabel TimerLabel;
     private JLabel time;
 
-    private JPanel panel=new JPanel(); //This panel will hold all the containers
-    private JPanel panel2=new JPanel(); //This panel will hold all the radio buttons
-    private JLabel Word_Image= new JLabel("");
+    private final JPanel panel=new JPanel(); //This panel will hold all the containers
+    private final JPanel panel2=new JPanel(); //This panel will hold all the radio buttons
+    private final JLabel Word_Image= new JLabel("");
 
-    private static JRadioButton b1 = new JRadioButton("Bottles or Cans");
-    private static JRadioButton b2 = new JRadioButton("E-Waste");
-    private static JRadioButton b3 = new JRadioButton("Mixed Paper");
-    private static JRadioButton b4 = new JRadioButton("Organics");
-    private static JRadioButton b5 = new JRadioButton("Plastics");
-    private static JRadioButton b6 = new JRadioButton("Trash");
-    private static ButtonGroup bg = new ButtonGroup();
+    private static final JRadioButton b1 = new JRadioButton("Bottles or Cans");
+    private static final JRadioButton b2 = new JRadioButton("E-Waste");
+    private static final JRadioButton b3 = new JRadioButton("Mixed Paper");
+    private static final JRadioButton b4 = new JRadioButton("Organics");
+    private static final JRadioButton b5 = new JRadioButton("Plastics");
+    private static final JRadioButton b6 = new JRadioButton("Trash");
+    private static final ButtonGroup bg = new ButtonGroup();
 
-    private Game_Info G1 = new Game_Info();
+    private final Game_Info G1 = new Game_Info();
     private String word;
     private boolean isTimeOn = false;
-    private JLabel image_temp = new JLabel(); // image temp
+    private final JLabel image_temp = new JLabel(); // image temp
     private String percentProgress;
-    private Font font = new Font("Papyrus", Font.BOLD,12);
+    private final Font font = new Font("Papyrus", Font.BOLD,12);
 
     //Time member variables
     private int elapsedTime = 0;
@@ -74,7 +74,7 @@ public class PlayGui implements GamePlayScreen {
                 ImageIcon icon = new ImageIcon("src\\main\\java\\cancel-32.jpg");  // An icon for the JOptionPane
                 // A JOptionPane should pop up warning the user of their action
                 int check = JOptionPane.showConfirmDialog(frame, "Are you sure you want to exit the current game?" + System.lineSeparator()
-                        + "You will lose your progress.;", "Exit",
+                        + "You will lose your progress.", "Exit",
                         JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, icon);
                 if(check == JOptionPane.OK_OPTION){ // if the user decides to exit the game, the application should return to the main screen
                     frame.dispose();
@@ -259,14 +259,14 @@ public class PlayGui implements GamePlayScreen {
             c= Double.parseDouble(num[2]);
         }
         br.close();
-        String temp = String.valueOf(a) + "-" + String.valueOf(b) + "-" + String.valueOf(c);
-        if (a == 0){
-            temp = String.valueOf(number) + "-" + String.valueOf(number) + "-" + String.valueOf(number);
+        String temp = number + "-" + b + "-" + c;
+        if (a == 0 && b == 0 && c == 0){
+            temp = number + "-" + number + "-" + number;
         }
         if(number > b && b != 0) {
-            temp = String.valueOf(a) + "-" + String.valueOf(number) + "-" + String.valueOf(c);
+            temp = number + "-" + number + "-" + c;
         } else if (number < c && c!= 0){
-            temp = String.valueOf(a) + "-" + String.valueOf(b) + "-" + String.valueOf(number);
+            temp = number + "-" + b + "-" + number;
         }
         try (BufferedWriter bry = new BufferedWriter(new FileWriter(file))){
             bry.append(temp);
@@ -436,27 +436,13 @@ public class PlayGui implements GamePlayScreen {
         time.setText(hours_string+":"+minutes_string+":"+seconds_string);
     }
     @Override
-    public void GameGUI(){}
-    @Override
     public int getScore(){
         return score;
     }
     @Override
-    public void skip(){}
-    @Override
-    public void pause(){}
-    @Override
-    public void quitCurrentGame(){}
-    @Override
-    public void viewGamestatus(){}
-    @Override
-    public void OpenGame(){}
-    @Override
     public boolean playAgain(){
         return play_again;
     }
-    @Override
-    public void exitGame(){}
     @Override
     public boolean SaveGame(){
         return save_game;

@@ -26,11 +26,12 @@ public class DataTest {
     @Test
     public void playIndex() {
         Data dat = new Data();
-        int size = 78;
+        int size = 10;
         int[] arr = dat.playIndex(size);
         for (int i = 0; i < size; i++) {
             System.out.println(arr[i]);
-        }
+        }//Cannot use assert method here because the array is random all the time
+        //Print to the console instead for testing
     }
 
     @Test
@@ -45,6 +46,8 @@ public class DataTest {
         for (int i = 0; i < size; i++) {
             System.out.println(easyPy[i]);
         }
+        //Cannot use assert method here because the array is random all the time
+        //Print to the console instead for testing
     }
 
     @Test
@@ -59,6 +62,8 @@ public class DataTest {
         for (int i = 0; i < size; i++) {
             System.out.println(easyPy[i]);
         }
+        //Cannot use assert method here because the array is random all the time
+        //Print to the console instead for testing
     }
 
     @Test
@@ -73,6 +78,8 @@ public class DataTest {
         for (int i = 0; i < size; i++) {
             System.out.println(hardPy[i]);
         }
+        //Cannot use assert method here because the array is random all the time
+        //Print to the console instead for testing
     }
 
     @Test
@@ -86,7 +93,8 @@ public class DataTest {
         String[] easyAns = dat.EasyAnsData(arr, size);
         for (int i = 0; i < size; i++) {
             System.out.println(easyAns[i]);
-        }
+        }//Cannot use assert method here because the array is random all the time
+        //Print to the console instead for testing
     }
 
     @Test
@@ -100,7 +108,8 @@ public class DataTest {
         String[] medAns = dat.MediumAnsData(arr, size);
         for (int i = 0; i < size; i++) {
             System.out.println(medAns[i]);
-        }
+        }//Cannot use assert method here because the array is random all the time
+        //Print to the console instead for testing
     }
 
     @Test
@@ -114,10 +123,8 @@ public class DataTest {
         String[] hardAns = dat.HardAnsData(arr, size);
         for (int i = 0; i < size; i++) {
             System.out.println(hardAns[i]);
-        }
+        }//Cannot use assert method here because the array is random all the time
+        //Print to the console instead for testing
     }
 
-    @Test
-    public void main() {
-    }
 }
