@@ -259,16 +259,16 @@ public class PlayGui implements GamePlayScreen {
             c= Double.parseDouble(num[2]);
         }
         br.close();
-        String temp = number + "-" + b + "-" + c;
-        if (a == 0 && b == 0 && c == 0){
+        String temp = number + "-" + b + "-" + c; // Always update the last played score which is a
+        if (a == 0 && b == 0 && c == 0){ // If we are updating the game statistics txt for the first time, set all values to recent score
             temp = number + "-" + number + "-" + number;
         }
-        if(number > b && b != 0) {
+        if(number > b && b != 0) { // check if recent score is bigger than the highest score. Update accordingly
             temp = number + "-" + number + "-" + c;
-        } else if (number < c && c!= 0){
+        } else if (number < c && c!= 0){ // check if the recent score is lower than the lowest score. Update accordingly
             temp = number + "-" + b + "-" + number;
         }
-        try (BufferedWriter bry = new BufferedWriter(new FileWriter(file))){
+        try (BufferedWriter bry = new BufferedWriter(new FileWriter(file))){ // Update the text file
             bry.append(temp);
         } catch (IOException e) {
             e.printStackTrace();
@@ -316,13 +316,15 @@ public class PlayGui implements GamePlayScreen {
             double final_score = G1.get_calculated_score();
             System.out.println(final_score);
             try {
-                updateGameStats(final_score);
+                updateGameStats(final_score); // Update the game statistics file and page
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            nextButton.setText("End");
+            nextButton.setText("End"); // change the next button to show that we have reached the end of the game.
+
+            // Shows the progress level during the game play
             progressLabel.setText(String.valueOf(final_score));
-            if(final_score == 100.0) {
+            if(final_score == 100.0) { // The user gets a different image and message if they get a perfect score
                 Path path = Paths.get("src\\main\\java\\two-happy.jpg");
                 String location1 = String.valueOf(path.toAbsolutePath()); //holds the image path
                 ImageIcon icon = new ImageIcon(location1);
@@ -330,28 +332,29 @@ public class PlayGui implements GamePlayScreen {
                                 System.lineSeparator() + "You deserve a cake and medal!!!" +
                                 System.lineSeparator() + "Would you like to play again?", "Score",
                         JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, icon);
-                if(check == JOptionPane.NO_OPTION) {
+
+                if(check == JOptionPane.NO_OPTION) { // Go back to the main game screen of they dont want to play again
                     frame.dispose();
                     GUI g = new GUI();
                     g.run();
-                } else if(check == JOptionPane.YES_OPTION) {
-                    frame.dispose();
+                } else if(check == JOptionPane.YES_OPTION) { // Go back to the game settings page so that they can choose new options to play again
+                    frame.dispose(); // clear out the screen
                     GameSettings g = new GameSettings();
                 }
             } else {
                 Path path = Paths.get("src\\main\\java\\happy-jumping.jpg");
                 String location2 = String.valueOf(path.toAbsolutePath()); //holds the image path
-                ImageIcon icon = new ImageIcon(location2);
+                ImageIcon icon = new ImageIcon(location2); // displays a message to show their final score and time used
                 int check = JOptionPane.showConfirmDialog(frame, "Congratulations on " + final_score + "% in " + time.getText() + "." +
                                 System.lineSeparator() + "Keep trying for a perfect score!" +
                                 System.lineSeparator() + "Would you like to play again?", "Score",
                         JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, icon);
-                if(check == JOptionPane.NO_OPTION) {
+                if(check == JOptionPane.NO_OPTION) { // Go back to the main game screen if they dont want to paly again
                     frame.dispose();
                     GUI g = new GUI();
                     g.run();
-                } else if(check == JOptionPane.YES_OPTION) {
-                    frame.dispose();
+                } else if(check == JOptionPane.YES_OPTION) { // Go back to the game settings page so that they can choose new options to play again
+                    frame.dispose(); // clear out the previous screen
                     GameSettings g = new GameSettings();
                 }
             }
@@ -395,45 +398,47 @@ public class PlayGui implements GamePlayScreen {
     public void SetGameGUIParam(String Game_Difficulty, String Game_Item_type , boolean timer, int Game_num_items){
         G1.set_game_all_param(Game_Difficulty, Game_Item_type ,timer, Game_num_items); //give input to this class
         G1.pick_Database_word_array(); //this class will select the array
-        if(timer == true){
+        if(timer == true){ // check if the user wants to play with the timer
             isTimeOn = true;
             TimerLabel.setFont(font);
-            TimerLabel.setText("Timer:");
+            TimerLabel.setText("Timer:"); // display the timer and start it
             timerGame.start();
-            //timerGame.reset();
-            pauseButton.addActionListener(new ActionListener() {
+            pauseButton.addActionListener(new ActionListener() { // if the user decides to pause the game, pause the timer also
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     timerGame.stop();
                     JOptionPane.showConfirmDialog(frame,"Game Paused. Click Ok to resume.","Pause",JOptionPane.DEFAULT_OPTION);
-                    timerGame.start();
+                    timerGame.start(); // start it up again if they click ok to resume
                 }
             });
         }
     }
+
+    //Timer object to set up the timer for the game
     Timer timerGame = new Timer(1000, new ActionListener() {
         public void actionPerformed(ActionEvent e) {
             time.setFont(font);
-            elapsedTime=elapsedTime+1000;
-            hours = (elapsedTime/3600000);
+            elapsedTime=elapsedTime+1000; // the elapsed time keeps updating after each second
+            hours = (elapsedTime/3600000);// set up the timer variables
             minutes = (elapsedTime/60000) % 60;
             seconds = (elapsedTime/1000) % 60;
             seconds_string = String.format("%02d", seconds);
             minutes_string = String.format("%02d", minutes);
             hours_string = String.format("%02d", hours);
-            time.setText(hours_string+":"+minutes_string+":"+seconds_string);
+            time.setText(hours_string+":"+minutes_string+":"+seconds_string);// display the time in format HH:MM:SS
         }
     });
+    //Function to reset the timer
     public void reset() {
-        timerGame.stop();
-        elapsedTime=0;
+        timerGame.stop(); //Make sure the timer is not running
+        elapsedTime=0; //Set up the variables to 0
         seconds =0;
         minutes=0;
         hours=0;
         seconds_string = String.format("%02d", seconds);
         minutes_string = String.format("%02d", minutes);
         hours_string = String.format("%02d", hours);
-        time.setText(hours_string+":"+minutes_string+":"+seconds_string);
+        time.setText(hours_string+":"+minutes_string+":"+seconds_string);// display the reset time in the format HH:MM:SS
     }
     @Override
     public int getScore(){
